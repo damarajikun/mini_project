@@ -1,0 +1,95 @@
+data_barang = {
+    '1122334455' : {'Kategori': 'Minuman', 'Nama Produk': 'Bear Brand 189 ml', 'Produsen': 'NESTLE', 'Qty Stok': 808, 'Terjual' : 2192, 'Satuan': 'kaleng', 'Harga': 10000},  
+    '1122334466': {'Kategori': 'Minuman', 'Nama Produk': 'Susu Bendera Kental Manis Kaleng 370gr', 'Produsen':'FRISIANFLAG', 'Qty Stok': 700, 'Terjual' : 2300, 'Satuan': 'kaleng', 'Harga': 15000},
+    '1122335511' : {'Kategori': 'Makanan', 'Nama Produk': 'Roma Biskuit Kelapa Original 300gr', 'Produsen':'MAYORA', 'Qty Stok': 1204, 'Terjual' : 3796, 'Satuan': 'pcs', 'Harga': 20000},
+    '1122335522' : {'Kategori': 'Makanan', 'Nama Produk' : 'Oreo Biskuit Cokelat Original 119.6gr', 'Produsen':'MONDELEZ', 'Qty Stok': 1204, 'Terjual' : 3796, 'Satuan': 'pcs', 'Harga': 17000},
+    '1122441111' : {'Kategori': 'Bahan Makanan', 'Nama Produk' : 'Indomie Goreng', 'Produsen':'INDOFOOD', 'Qty Stok': 10000, 'Terjual' : 40000, 'Satuan': 'pcs', 'Harga': 3000}
+    }
+
+
+def default_data():
+    if len(data_barang) == 0:
+        print("Tidak ada data")
+    else:
+         print('='*90)
+         print(' '*30+'DAFTAR BARANG')
+         print('='*90)
+         print('Barcode \t|Kategori \t|Nama Produk \t|Produsen \t|Qty Stok \t|Terjual \t|Satuan \t|Harga')
+         for key in data_barang.keys():
+            print('{} \t|{} \t|{} \t|{} \t|{} \t|{} \t|{}'.format(data_barang[key]['Kategori'], data_barang[key]['Nama Produk'], data_barang[key]['Produsen'], data_barang[key]['Qty Stok'], data_barang[key]['Terjual'], data_barang[key]['Satuan'], data_barang[key]['Harga']))
+
+def view_data_barang():
+    while len(data_barang) == 0:
+        print("Tidak ada data")
+        break
+
+    else:
+        while True:
+            pilih_menu_view = int(input('\n********** MENU BARANG ********** \n1. Lihat Semua Data Barang \n2. Lihat Berdasarkan Kategori Barang \n3. Cari berdasarkan Nama Produsen \n4. Kembali ke Menu Utama \n \nPilih Menu:'))
+            
+            #menu menampilkan semua data barang
+            if pilih_menu_view == 1:  #menampilkan semua data
+                default_data()
+
+                
+            if pilih_menu_view == 2: #menampilkan data berdasarkan kategori barang
+                pilih_kategori = int(input('\n********** DAFTAR KATEGORI BARANG ********** \n1. Makanan \n2. Minuman \n3. Bahan Makanan \n4. Kembali Ke Menu Awal \nPilih Kategori Produk: '))
+                if pilih_kategori ==1:
+                    print('Barcode \t|Kategori \t|Nama Produk \t|Produsen \t|Qty Stok \t|Terjual \t|Satuan \t|Harga')
+                    for key in data_barang.keys()['Kategori'] == 'Makanan':
+                        print('{} \t|{} \t|{} \t|{} \t|{} \t|{} \t|{}'.format(data_barang[key]['Kategori'], data_barang[key]['Nama Produk'], data_barang[key]['Produsen'], data_barang[key]['Qty Stok'], data_barang[key]['Terjual'], data_barang[key]['Satuan'], data_barang[key]['Harga']))
+                    else:
+                        continue
+                elif pilih_kategori ==2:
+                    print('Barcode \t|Kategori \t|Nama Produk \t|Produsen \t|Qty Stok \t|Terjual \t|Satuan \t|Harga')
+                    for key in data_barang.keys()['Kategori'] == 'Minuman':
+                        print('{} \t|{} \t|{} \t|{} \t|{} \t|{} \t|{}'.format(data_barang[key]['Kategori'], data_barang[key]['Nama Produk'], data_barang[key]['Produsen'], data_barang[key]['Qty Stok'], data_barang[key]['Terjual'], data_barang[key]['Satuan'], data_barang[key]['Harga']))
+                    else:
+                        continue
+                elif pilih_kategori ==3:
+                    print('Barcode \t|Kategori \t|Nama Produk \t|Produsen \t|Qty Stok \t|Terjual \t|Satuan \t|Harga')
+                    for key in data_barang.keys()['Kategori'] == 'Bahan Makanan':
+                        print('{} \t|{} \t|{} \t|{} \t|{} \t|{} \t|{}'.format(data_barang[key]['Kategori'], data_barang[key]['Nama Produk'], data_barang[key]['Produsen'], data_barang[key]['Qty Stok'], data_barang[key]['Terjual'], data_barang[key]['Satuan'], data_barang[key]['Harga']))
+                    else:
+                        continue
+                elif pilih_kategori == 4:
+                    break
+                else:
+                    print('Kategori Tidak Tersedia')
+            
+            #Menampilkan menu pencarian Nama Produk
+            if pilih_menu_view == 3:
+                search = input('cari berdasarkan Nama Produsen: ')
+                print('Barcode \t|Kategori \t|Nama Produk \t|Produsen \t|Qty Stok \t|Terjual \t|Satuan \t|Harga')
+                for key in data_barang.keys():
+                    if search.upper() in data_barang[key]['Produsen'].upper():
+                        print('{} \t|{} \t|{} \t|{} \t|{} \t|{} \t|{}'.format(data_barang[key]['Kategori'], data_barang[key]['Nama Produk'], data_barang[key]['Produsen'], data_barang[key]['Qty Stok'], data_barang[key]['Terjual'], data_barang[key]['Satuan'], data_barang[key]['Harga']))
+                    else:
+                        continue
+
+def tambah_data_barang():
+    while True:
+        default_data()
+      
+while True:
+    pilih_menu = int(input('''
+    Main Menu:
+    1. View Data Barang
+    2. Tambah Data Barang
+    3. Ubah Data Barang
+    4. Hapus Data Barang
+
+    Masukkan nomor menu yang akan dituju: '''))
+
+    if pilih_menu == 1:
+        view_data_barang()
+    elif pilih_menu == 2:
+        tambah_data_barang()
+    # elif pilih_menu == 3:
+    #     ubah_data_barang
+    # elif pilih_menu == 4:
+    #     hapus_data_barang
+    # elif pilih_menu == 5:
+    #     quit()
+    else:
+        print("Menu tidak tersedia, silakan kembali ke menu awal")
